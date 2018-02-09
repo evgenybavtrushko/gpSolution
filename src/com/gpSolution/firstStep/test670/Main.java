@@ -1,4 +1,4 @@
-package com.gpSolution.test670;
+package com.gpSolution.firstStep.test670;
 
 import java.io.*;
 import java.util.ArrayList;

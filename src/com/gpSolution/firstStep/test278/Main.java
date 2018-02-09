@@ -1,4 +1,4 @@
-package com.gpSolution.test278;
+package com.gpSolution.firstStep.test278;
 
 import java.io.*;
 

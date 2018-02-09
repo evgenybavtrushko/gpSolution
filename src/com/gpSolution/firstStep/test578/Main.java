@@ -1,4 +1,4 @@
-package com.gpSolution.test578;
+package com.gpSolution.firstStep.test578;
 
 import java.io.*;
 import java.util.Scanner;
