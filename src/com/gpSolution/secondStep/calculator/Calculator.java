@@ -26,10 +26,16 @@ public abstract class Calculator {
     }
 
     private static boolean expressionIsValid(String expression) throws ExpressionInvalidException {
-        Pattern pattern = Pattern.compile(".*\\d+([\\.|\\,]\\d+)?\\s+\\d+([\\.|\\,]\\d+)?.*");
+        Pattern pattern = Pattern.compile("(\\-*\\(*\\-*\\d+([\\.|\\,]\\d+)?\\)*\\s*[\\+\\-\\*\\/\\^]\\s*)+(\\-*\\d+([\\.|\\,]\\d+)?\\)*)$");
         Matcher matcher = pattern.matcher(expression);
-        if (matcher.matches()) {
-            throw new ExpressionInvalidException("There must be no spaces between the numbers");
+        if (!matcher.matches()) {
+            Pattern pattern2 = Pattern.compile(".*\\d+([\\.|\\,]\\d+)?\\s+\\d+([\\.|\\,]\\d+)?.*");
+            Matcher matcher2 = pattern2.matcher(expression);
+            if (matcher2.matches()) {
+                throw new ExpressionInvalidException("There must be no spaces between the numbers");
+            }else {
+                throw new ExpressionInvalidException("Check the correctness of the expression.");
+            }
         }
         return true;
     }
